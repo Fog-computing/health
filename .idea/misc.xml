@@ -38,17 +38,22 @@
       <property name="caretWidth" class="java.lang.Integer" />
     </properties>
   </component>
-  <component name="GradleLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="D:/Idea2016/github/liangpengju/spring-framework-master" value="3041608832000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/iBase4J-Biz-Service" />
+    <file type="web" url="file://$PROJECT_DIR$/iBase4J-Biz-Web" />
+    <file type="web" url="file://$PROJECT_DIR$/iBase4J-SYS-Service" />
+    <file type="web" url="file://$PROJECT_DIR$/iBase4J-SYS-Web" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" default="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
