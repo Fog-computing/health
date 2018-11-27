@@ -1,0 +1,23 @@
+package
+
+import org.springframework.cache.annotation.CacheConfig;
+
+    ${package.Service}
+;
+    ${package.Entity}.${entity};
+    ${superServiceClassPackage}
+        ;
+
+/**
+ * <p>
+ * ${table.comment}  服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+@CacheConfig(cacheNames = "${entity}")
+public class ${entity}Service extends${superServiceClass}<${entity}> {
+
+        }

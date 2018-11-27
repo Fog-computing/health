@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>云护健康管理平台</title>
+
+    <!-- 全局样式 -->
+    <link href="../../assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/core.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/components.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="../../extends/dep/cropper/cropper.min.css" rel="stylesheet">
+
+    <!-- /全局样式 -->
+
+    <!-- 自定义样式 -->
+    <link href="../../extends/dep/ztree/css/metro.css" rel="stylesheet" type="text/css">
+    <link href="../../extends/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../extends/css/admin/user.css" rel="stylesheet" type="text/css">
+
+
+    <link href="../../extends/dep/sitelogo/sitelogo.css" rel="stylesheet">
+    <link href="../../extends/css/admin/modifyHead.css" rel="stylesheet" type="text/css">
+    <!-- /自定义样式 -->
+
+    <!-- js核心库 -->
+    <script type="text/javascript" src="../../assets/js/core/libraries/vue.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/loaders/blockui.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/notifications/pnotify.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/notifications/bootbox.min.js"></script>
+    <!-- /js核心库 -->
+
+    <!-- js主题库 -->
+    <script type="text/javascript" src="../../assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/validation/validate.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/validation/additional_methods.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/styling/switch.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/inputs/touchspin.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/jquery.formautofill.min.js"></script>
+
+    <script type="text/javascript" src="../../assets/js/plugins/media/cropper.min.js"></script>
+
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/select.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+
+
+    <script type="text/javascript" src="../../assets/js/core/app.js"></script>
+    <!-- /js主题库 -->
+
+    <!-- js自定义 -->
+    <script src="../../extends/dep/ztree/js/jquery.ztree.all-3.5.min.js"></script>
+    <script src="../../extends/js/common.js"></script>
+    <script src="../../extends/dep/datetime/js/bootstrap-datepicker.js"></script>
+    <script src="../../assets/js/pages/form_validation.js"></script>
+    <script src="../../extends/js/biz/userform.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=Ae3tfplb5qONgk6RLUUuGlGD9NwbwYxw"></script>
+
+
+    <script src="../../extends/js/biz/sitelogo.js"></script>
+    <script src="../../extends/js/biz/modifyHead.js"></script>
+    <style>
+        .close-icon {
+            float: right;
+            /*margin-right:px ;*/
+            margin-top: -5px;
+        }
+    </style>
+    <!-- /js自定义 -->
+
+</head>
+
+<body>
+<!-- 页面容器 -->
+<div class="page-container">
+    <!-- 页面内容 -->
+    <div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Page header -->
+            <div class="page-header page-header-default border-bottom-lg border-bottom-teal">
+                <div class="page-header-content">
+                    <div class="page-title">
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-bold">系统管理</span> - 用户管理
+                        </h4>
+                    </div>
+
+                </div>
+
+                <div class="breadcrumb-line">
+                    <ul class="breadcrumb">
+                        <li><a href="/main/welcome.html"><i class="icon-home2 position-left"></i>首页</a></li>
+                        <li>业务管理</li>
+                        <li>用户管理</li>
+                        <li class="active title"><span class="OPT">新增</span>用户</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /page header -->
+
+
+            <!-- Content area -->
+            <div class="content">
+                <div id="userPanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-pencil7 position-left"></i><span class="OPT">新增</span>用户
+                        </h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <li><a data-action="reload" data-fnReload="refreshData"></a></li>
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" action="#" id="userEdit">
+                            <input type="hidden" name="id"/>
+                            <fieldset class="content-group">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>用户帐号
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="account" class="form-control" placeholder="请输入用户账号">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>用户密码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>确认密码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="password" name="repeat_password" class="form-control"
+                                               placeholder="请再次输入密码">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>真实姓名
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="username" class="form-control" placeholder="请输入用户真实姓名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>身份证号
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="idCard" class="form-control" placeholder="请输入邮箱地址">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>手机号码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="phoneNum" class="form-control" placeholder="请输入手机号码">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>性别
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <div class="radio-inline">
+                                            <label class="choice-inline">
+                                                <input type="radio" name="gender" class="styled" value="false">男
+                                            </label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label class="choice-inline">
+                                                <input type="radio" name="gender" class="styled" value="true">女
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>出生日期
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <div class="input-group">
+                                            <input type="text" name="birthday" class="form-control date-picker"
+                                                   placeholder="请输入出生日期" readonly="true" style="background: white">
+                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>身高
+                                    </label>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                                        <input type="text" name="height" class="form-control" placeholder="单位厘米">
+                                    </div>
+                                    <label class="control-label col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>体重
+                                    </label>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                                        <input type="text" name="weight" class="form-control" placeholder="单位千克">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>状态
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <div class="switch" id="status-control">
+                                            <label>
+                                                <input type="checkbox" data-on-text="启用"
+                                                       data-off-text="禁止" name="enableController">
+                                            </label>
+                                            <input type="text" name="enableStatus" style="display: none">
+                                        </div>
+                                        <input type="text" name="disableComment" class="form-control"
+                                               placeholder="请输入禁用原因">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 department col-md-2 col-lg-2 text-right">详细住址</label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="address" class="form-control" placeholder="请输入详细地址">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-4 department col-md-2 col-lg-2 text-right">租期信息</label>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                                        <input id="sub-time-start" type="text" disabled class="form-control"
+                                               placeholder="开始日期">
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 " style="margin-top: 0px">
+                                        <input id="sub-time-end" type="text" disabled class="form-control"
+                                               placeholder="结束日期">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 department col-md-2 col-lg-2 text-right">续期（单位：月）</label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="number" name="subTime" class="form-control" placeholder="请输入订阅时间">
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+
+                            <div class="text-right">
+                                <button type="reset" class="btn btn-default" id="reset">重置 <i
+                                        class="icon-reload-alt position-right"></i></button>
+                                <button type="button" class="btn btn-primary submit">提交 <i
+                                        class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="picturePanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-pencil7 position-left"></i><span class="OPT">上传</span>其他信息
+                        </h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <!--<li><a data-action="reload" data-fnReload="refreshData"></a></li>-->
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                <div id="avatar-modal">
+                                    <div class="modal-content">
+                                        <form id="pic-form" class="avatar-form" action="/biz/user/update/pic"
+                                              enctype="multipart/form-data"
+                                              method="post">
+                                            <div class="modal-header border-bottom-teal">
+                                                <h5 class="modal-title" id="avatar-modal-label">上传照片</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="avatar-body">
+                                                    <div class="avatar-upload">
+                                                        <input class="avatar-src" name="avatar_src" type="hidden">
+                                                        <input class="avatar-data" name="avatar_data" type="hidden">
+                                                        <label class="btn bg-teal-300" for="avatarInput">本地上传</label>
+                                                        <input type="file" name="avatar_file" id="avatarInput"
+                                                               class="avatar-input" accept=".jpg,.jpeg,.gif,.png"
+                                                               title="请选择要修改的头像">
+                                                        <div class="picture-format">
+                                                            仅支持JPG、GIF或PNG格式的图片文件，且文件大小不能超过2M。
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="pic-wrapper"></div>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="user-pic">
+                                                                <img src="" class="user-pic-content"> </img>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row avatar-btns">
+                                                        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                                            <button class="btn bg-teal-700 btn-block avatar-save"
+                                                                    type="submit">
+                                                                <i class="icon-floppy-disk"></i> 保存
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-teal">
+                                        <h5 class="modal-title" id="">修改标签</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <fieldset class="content-group">
+                                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label class="control-label col-xs-4 col-sm-3 department col-md-2 col-lg-2 text-right">用户标签</label>
+                                                <div id="userTags"
+                                                     class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <label class="control-label col-xs-4 col-sm-3 department col-md-2 col-lg-2 text-right">未使用标签</label>
+                                                <div id="notUsedTags"
+                                                     class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="watchPanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-pencil7 position-left"></i><span class="OPT">添加</span>手表
+                        </h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <!--<li><a data-action="reload" data-fnReload="refreshData"></a></li>-->
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" action="#" id="watchEdit">
+                            <input type="hidden" name="id"/>
+                            <input type="hidden" name="user"/>
+                            <input type="hidden" name="longitude"/>
+                            <input type="hidden" name="latitude">
+                            <fieldset class="content-group">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>手表imei
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="imei" class="form-control" placeholder="请输入手表imei">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>手表绑定号码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="watchPhoneNum" class="form-control"
+                                               placeholder="请输入手机号码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>电子围栏
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <select id="redius" name="radius" class="form-control"
+                                                placeholder="请输入围栏半径并选择中心点">
+                                            <option value="50" selected>50</option>
+                                            <option value="200">200</option>
+                                            <option value="500">500</option>
+                                            <option value="1000">1000</option>
+                                            <option value="2000">2000</option>
+                                            <option value="5000">5000</option>
+
+                                        </select>
+                                        <!--                                        <input type="text" id="radius" name="radius" class="form-control"-->
+                                        <!--                                               placeholder="请输入围栏半径并选择中心点">-->
+                                    </div>
+
+                                </div>
+
+                                <div class="map-container" id="map-container">
+
+                                </div>
+                            </fieldset>
+
+                            <div class="text-right">
+                                <button type="reset" class="btn btn-default" id="resetWatch">重置 <i
+                                        class="icon-reload-alt position-right"></i></button>
+                                <button type="button" class="btn btn-primary submit">提交 <i
+                                        class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="fallDevicePanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-pencil7 position-left"></i><span class="OPT">编辑</span>跌倒设备
+                        </h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <!--<li><a data-action="reload" data-fnReload="refreshData"></a></li>-->
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" action="#" id="fallDevice">
+                            <input type="hidden" name="id"/>
+                            <input type="hidden" name="user"/>
+                            <input type="hidden" name="longitude"/>
+                            <input type="hidden" name="latitude">
+                            <fieldset class="content-group">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>设备imei
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="imei" class="form-control" placeholder="请输入手表imei">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>设备号码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="phoneNum" class="form-control"
+                                               placeholder="请输入手机号码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        <span class="text-danger">*</span>设备绑定号码
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" name="bindPhoneNum" class="form-control"
+                                               placeholder="设备绑定号码">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4 col-sm-3 col-md-2 col-lg-2 text-right">
+                                        最后在线时间
+                                    </label>
+                                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9 no-padding">
+                                        <input type="text" disabled name="lastOnlineTime" class="form-control"
+                                               placeholder="未上线">
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+                            <div class="text-right">
+                                <button type="reset" class="btn btn-default" id="resetFallDown">重置 <i
+                                        class="icon-reload-alt position-right"></i></button>
+                                <button type="button" class="btn btn-primary submit">提交 <i
+                                        class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="devicePanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-profile position-left"></i>用户设备管理</h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <!--<li><a data-action="reload" data-fnReload="refreshData"></a></li>-->
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table class="table table-bordered text-center device-list">
+                        <thead>
+                        <tr>
+                            <th class="text-center">设备名称</th>
+                            <th class="text-center">设备编号</th>
+                            <th class="text-center">设备用户</th>
+                            <th class="text-center">用户电话</th>
+                            <th class="text-center">IMEI编号（手表）</th>
+                            <th class="text-center ">操作</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="relationPhoneNumPanel" class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-profile position-left"></i>用户联系人管理</h5>
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <!--<li><a data-action="reload" data-fnReload="refreshData"></a></li>-->
+                                <li><a data-action="collapse"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table class="table table-bordered text-center relation-list">
+                        <thead>
+                        <tr>
+                            <th class="text-center">联系电话</th>
+                            <th class="text-center">姓名</th>
+                            <th class="text-center">与用户关系</th>
+                            <th class="text-center">联系人类型</th>
+                            <th class="text-center ">操作</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+
+                <!-- Footer -->
+                <div class="footer text-muted" v-html="footer"></div>
+                <!-- /footer -->
+
+            </div>
+            <!-- /content area -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /页面内容 -->
+
+
+</div>
+<!-- /页面容器 -->
+</body>
+<script>
+
+</script>
+</html>
