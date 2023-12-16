@@ -44,7 +44,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>xxg-repository</id>
-			<url>http://repo.maven.xxgblog.com/</url>
+			<url>https://repo.maven.xxgblog.com/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<build>
